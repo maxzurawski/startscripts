@@ -1,0 +1,14 @@
+version: '3'
+services:
+  discovery:
+    restart: always
+    image: xdevices/discovery:latest
+    ports:
+      - "8761:8761"
+  proxy:
+    restart: always
+    image: xdevices/proxy:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - EUREKA_SERVICE: http://discovery:8761/eureka
