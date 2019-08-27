@@ -12,3 +12,12 @@ services:
       - "8000:8000"
     environment:
       - EUREKA_SERVICE=http://discovery:8761/eureka
+  dispatcher:
+    restart: always
+    image: dispatcher:latest
+    environment:
+      - HTTP_PORT=8100
+      - SERVICE_NAME=dispatcher
+      - EUREKA_SERVICE=http://discovery:8761
+    expose:
+      - "8100"
