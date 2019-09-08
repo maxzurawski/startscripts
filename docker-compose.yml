@@ -21,3 +21,13 @@ services:
       - EUREKA_SERVICE=http://discovery:8761
     expose:
       - "8100"
+  sensortypes:
+    restart: always
+    image: sensortypes:latest
+    environment:
+      - HTTP_PORT=8101
+      - SERVICE_NAME=sensortypes
+      - EUREKA_SERVICE=http://discovery:8761
+      - DB_PATH=/var/lib/jenkins/.databases/xdevices/sensortypes.db
+    expore:
+      - "8101"
