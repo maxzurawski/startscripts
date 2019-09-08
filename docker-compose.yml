@@ -24,10 +24,12 @@ services:
   sensortypes:
     restart: always
     image: sensortypes:latest
+    volumes:
+      - /var/lib/jenkins/.databases/xdevices:/xdevices
     environment:
       - HTTP_PORT=8101
       - SERVICE_NAME=sensortypes
       - EUREKA_SERVICE=http://discovery:8761
-      - DB_PATH=/var/lib/jenkins/.databases/xdevices/sensortypes.db
+      - DB_PATH=/xdevices/sensortypes.db
     expose:
       - "8101"
