@@ -36,5 +36,5 @@ services:
   ui:
     restart: always
     image: ui:latest
-    port:
+    ports:
       - "80:80"
