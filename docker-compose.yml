@@ -33,3 +33,8 @@ services:
       - DB_PATH=/xdevices/sensortypes.db
     expose:
       - "8101"
+  ui:
+    restart: always
+    image: ui:latest
+    port:
+      - "80:80"
