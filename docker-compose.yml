@@ -42,7 +42,7 @@ services:
     restart: always
     image: register:latest
     volumes:
-      - /home/pi/.databases/xdevices:/xdevices
+      - /var/lib/jenkins/.databases/xdevices:/xdevices
     environment:
       - HTTP_PORT=8102
       - EUREKA_SERVICE=http://discovery:8761
