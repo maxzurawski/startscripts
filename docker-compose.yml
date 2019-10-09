@@ -1,5 +1,14 @@
 version: '3'
 services:
+  rabbit:
+    restart: always
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest1"
+      RABBITMQ_DEFAULT_PASS: "guest1"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
   discovery:
     restart: always
     image: xdevices/discovery:latest
