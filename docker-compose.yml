@@ -63,3 +63,16 @@ services:
       - RABBIT_HOST=rabbit
     expose:
       - "8102"
+  eventslogger:
+    restart: always
+    image: eventslogger:latest
+    volumes:
+      - /var/lib/jenkins/.databases/xdevices:/xdevices
+    environment:
+      - HTTP_PORT=8103
+      - EUREKA_SERVICE=http://discovery:8761
+      - SERVICE_NAME=eventslogger
+      - DB_PATH=/xdevices/eventslogger.db
+      - RABBIT_HOST=rabbit
+    expose:
+      - "8103"
