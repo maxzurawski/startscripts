@@ -76,13 +76,13 @@ services:
       - RABBIT_HOST=rabbit
     expose:
       - "8103"
-    servicesresolver:
-      restart: always
-      image: servicesresolver:latest
-      environment:
-        - HTTP_PORT=8104
-        - EUREKA_SERVICE=http://discovery:8761
-        - SERVICE_NAME=servicesresolver
-        - RABBIT_HOST=rabbit
-      expose:
-        - "8104"
+  servicesresolver:
+    restart: always
+    image: servicesresolver:latest
+    environment:
+      - HTTP_PORT=8104
+      - EUREKA_SERVICE=http://discovery:8761
+      - SERVICE_NAME=servicesresolver
+      - RABBIT_HOST=rabbit
+    expose:
+      - "8104"
