@@ -50,6 +50,8 @@ services:
     image: ui:latest
     ports:
       - "80:80"
+    expose:
+      - "8105"
   register:
     restart: always
     image: register:latest
@@ -86,3 +88,17 @@ services:
       - RABBIT_HOST=rabbit
     expose:
       - "8104"
+  temperaturearchive:
+    restart: always
+    image: temperaturearchive:latest
+    volumes:
+      - /var/lib/jenkins/.databases/xdevices:/xdevices
+    environment:
+      - HTTP_PORT=8105
+      - EUREKA_SERVICE=http://discovery:8761
+      - SERVICE_NAME=temperaturearchive
+      - DB_PATH=/xdevices/temperaturearchive.db
+      - RABBIT_HOST=rabbit
+      - PROXY_SERVICE=http://proxy:8000
+    ports:
+      - "8105:8105"
