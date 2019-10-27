@@ -110,4 +110,4 @@ services:
       - EUREKA_SERVICE=http://discovery:8761
       - SERVICE_NAME=constantsprovider
     expose:
-      - "8106:8106"
+      - "8106"
