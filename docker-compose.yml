@@ -117,11 +117,11 @@ services:
     volumes:
       - /var/lib/jenkins/.databases/xdevices:/xdevices
     environment:
-      - HTTP_PORT=8101
+      - HTTP_PORT=8107
       - EUREKA_SERVICE=http://discovery:8761
       - SERVICE_NAME=emailsender
       - DB_PATH=/xdevices/emailsender.db
       - RABBIT_HOST=rabbit
       - PROXY_SERVICE=http://proxy:8000
     expose:
-      - "8101"
+      - "8107"
