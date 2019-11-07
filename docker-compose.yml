@@ -111,3 +111,17 @@ services:
       - SERVICE_NAME=constantsprovider
     expose:
       - "8106"
+  emailsender:
+    restart: always
+    image: emailsender:latest
+    volumes:
+      - /var/lib/jenkins/.databases/xdevices:/xdevices
+    environment:
+      - HTTP_PORT=8101
+      - EUREKA_SERVICE=http://discovery:8761
+      - SERVICE_NAME=emailsender
+      - DB_PATH=/xdevices/emailsender.db
+      - RABBIT_HOST=rabbit
+      - PROXY_SERVICE=http://proxy:8000
+    export:
+      - "8101"
