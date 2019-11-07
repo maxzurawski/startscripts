@@ -123,5 +123,5 @@ services:
       - DB_PATH=/xdevices/emailsender.db
       - RABBIT_HOST=rabbit
       - PROXY_SERVICE=http://proxy:8000
-    export:
+    expose:
       - "8101"
