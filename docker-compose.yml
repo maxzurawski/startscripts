@@ -47,7 +47,7 @@ services:
       - "8101"
   ui:
     restart: always
-    image: ui:dev
+    image: ui:latest
     ports:
       - "80:80"
     expose:
